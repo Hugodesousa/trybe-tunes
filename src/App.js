@@ -7,6 +7,7 @@ import Favorites from './pages/Favorites';
 import Profile from './pages/Profile';
 import ProfileEdit from './pages/ProfileEdit';
 import NotFound from './pages/NotFound';
+import Load from './Components/Load';
 
 class App extends React.Component {
   render() {
@@ -14,11 +15,13 @@ class App extends React.Component {
       <div>
         <Switch>
           <Route path="/" component={ Login } exact />
-          <Route path="/search" component={ Search } />
+          <Route path="/search" component={ Search } exact />
           <Route path="/album/:id" component={ Album } />
           <Route path="/favorites" component={ Favorites } />
           <Route path="/profile" component={ Profile } exact />
           <Route path="/profile/edit" component={ ProfileEdit } />
+          <Route path="/load" component={ Load } exact />
+
           <Route path="/*" component={ NotFound } />
         </Switch>
 
