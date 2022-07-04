@@ -5,6 +5,7 @@ import PropTypes from 'prop-types';
 class Load extends Component {
   render() {
     const { status } = this.props;
+    console.log('test');
     return (
       <div>
         {!status
