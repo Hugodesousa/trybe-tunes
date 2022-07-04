@@ -3,16 +3,6 @@ import { Redirect } from 'react-router-dom';
 import PropTypes from 'prop-types';
 
 class Load extends Component {
-  // state= {
-  //   load: undefined,
-  // }
-
-  // verify = () => {
-  //   this.setState({
-  //     load: true,
-  //   })
-  // }
-
   render() {
     const { status } = this.props;
     return (
@@ -20,7 +10,6 @@ class Load extends Component {
         {!status
           ? <h1>Carregando...</h1>
           : <Redirect to="/search" />}
-
       </div>
     );
   }
