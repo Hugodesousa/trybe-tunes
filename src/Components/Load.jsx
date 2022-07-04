@@ -8,7 +8,7 @@ class Load extends Component {
     return (
       <div>
         {!status
-          ? <h1>Carregando...</h1>
+          ? <h1 className="loading">Carregando...</h1>
           : <Redirect to="/search" />}
       </div>
     );

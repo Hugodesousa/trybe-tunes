@@ -17,3 +17,9 @@ code {
   display: flex;
   justify-content: center;
 }
+
+.header {
+  display: flex;
+  background-color: green;
+  justify-content: space-between;
+}
