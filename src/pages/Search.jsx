@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import Header from '../Components/Header';
 import searchAlbumsAPI from '../services/searchAlbumsAPI';
+import Load from '../Components/Load';
 
 class Search extends Component {
   constructor() {
@@ -65,7 +66,7 @@ class Search extends Component {
 
         <Header />
 
-        {loading ? <p>Carregando...</p>
+        {loading ? <Load />
           : (
             <>
               <h1>Search</h1>

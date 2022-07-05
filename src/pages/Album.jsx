@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import PropTypes from 'prop-types';
 import Header from '../Components/Header';
 import getMusics from '../services/musicsAPI';
 import Load from '../Components/Load';
+import MusicCard from '../Components/MusicCard';
 
 class Album extends Component {
   constructor() {
@@ -16,18 +18,10 @@ class Album extends Component {
     const { match } = this.props;
     const { id } = match.params;
     this.getList(id);
-    // this.setState({
-    //   idAlbum: id,
-    // });
   }
-
-  // shouldComponentUpdate() {
-
-  // }
 
   getList = async (id) => {
     const request = await getMusics(id);
-    console.log(request);
     this.setState({
       info: request[0],
       musics: request.slice(1),
@@ -50,7 +44,7 @@ class Album extends Component {
               <h2 data-testid="album-name">
                 { info.collectionName}
               </h2>
-              {}
+              {musics.map((music) => <MusicCard music={ music } key={ music.trackId } />)}
             </div>
 
           )}
@@ -58,4 +52,9 @@ class Album extends Component {
     );
   }
 }
+
+Album.propTypes = {
+  match: PropTypes.objectOf(PropTypes.string).isRequired,
+};
+
 export default Album;

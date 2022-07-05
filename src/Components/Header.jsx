@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { getUser } from '../services/userAPI';
-import Load from './Load';
 
 class Header extends Component {
   constructor() {
@@ -28,7 +27,7 @@ class Header extends Component {
     return (
       <header data-testid="header-component" className="header">
         {userName.length < minName
-          ? <Load />
+          ? <p>Carregando...</p>
           : (
             <p data-testid="header-user-name">
               {` Usuario:
