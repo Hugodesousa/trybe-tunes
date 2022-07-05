@@ -12,13 +12,9 @@ class Search extends Component {
       loading: false,
       result: 'INITIAL',
       albuns: [],
-      test: '',
+      endValueSearch: '',
     };
   }
-
-  // componentDidUpdate() {
-  //   console.log('deu');
-  // }
 
   request = async () => {
     const { valueSearch } = this.state;
@@ -26,9 +22,8 @@ class Search extends Component {
       loading: true,
     });
     const result = await searchAlbumsAPI(valueSearch);
-    // const test = valueSearch;
     this.setState({
-      test: valueSearch,
+      endValueSearch: valueSearch,
       valueSearch: '',
       loading: false,
     });
@@ -42,10 +37,6 @@ class Search extends Component {
       albuns: result,
     });
   }
-
-  // resultRequest = () => {
-  //   return <p> Resultado de álbuns de: { valueSearch } </p>
-  // }
 
   input = ({ target }) => {
     this.setState({
@@ -62,10 +53,18 @@ class Search extends Component {
   }
 
   render() {
-    const { valueSearch, stateButton, loading, result, albuns, test } = this.state;
+    const { valueSearch,
+      stateButton,
+      loading,
+      result,
+      albuns,
+      endValueSearch } = this.state;
+
     return (
       <div data-testid="page-search">
+
         <Header />
+
         {loading ? <p>Carregando...</p>
           : (
             <>
@@ -92,32 +91,34 @@ class Search extends Component {
 
               </form>
               <div>
-                {}
+                { }
               </div>
             </>
           )}
+
         {albuns.length > 0
           ? (
             <p>
-              {`Resultado de álbuns de: ${test}`}
+              {`Resultado de álbuns de: ${endValueSearch}`}
             </p>)
           : <> </>}
-        { result
+
+        {result
           ? (
 
-            albuns.map((albun) => (
+            albuns.map(({ collectionId, collectionName }) => (
               <div
-                key={ albun.collectionId }
+                key={ collectionId }
               >
                 <Link
-                  to={ `/album/${albun.collectionId}` }
-                  data-testid={ `link-to-album-${albun.collectionId}` }
+                  to={ `/album/${collectionId}` }
+                  data-testid={ `link-to-album-${collectionId}` }
                 >
-                  { albun.collectionName }
+                  {collectionName}
                 </Link>
               </div>))
           )
-          : <> Nenhum álbum foi encontrado </> }
+          : <> Nenhum álbum foi encontrado </>}
 
       </div>
     );

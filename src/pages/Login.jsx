@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Redirect } from 'react-router-dom';
 import { createUser } from '../services/userAPI';
 import Load from '../Components/Load';
 
@@ -38,14 +39,18 @@ class Login extends Component {
       await createUser(login);
       this.setState({
         onLogin: true,
+        // loading: false,
       });
     };
 
     render() {
       const { stateButton, valueLogin, loading, onLogin } = this.state;
+      if (onLogin === true) {
+        return <Redirect to="/search" />;
+      }
       return (
         <div data-testid="page-login">
-          {loading ? <Load status={ onLogin } />
+          {loading ? <Load />
             : (
               <>
                 <h1>Login</h1>
