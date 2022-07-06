@@ -12,6 +12,22 @@ class MusicCard extends Component {
     };
   }
 
+  componentDidMount() {
+    const { favorites, music } = this.props;
+    favorites.forEach((fav) => {
+      if (fav.includes(music)) {
+        this.setState({
+          fav: true,
+        });
+      }
+    });
+    // if (favorites.includes(music)) {
+    //   this.setState({
+    //     fav: true,
+    //   })
+    // }
+  }
+
   checkFav = async () => {
     const { music } = this.props;
     this.setState({
@@ -47,11 +63,11 @@ class MusicCard extends Component {
           <code>audio</code>
           .
         </audio>
-        <label htmlFor="fav">
+        <label htmlFor={ trackId }>
           Favorita
           <input
             type="checkbox"
-            id="fav"
+            id={ trackId }
             data-testid={ `checkbox-music-${trackId}` }
             onChange={ this.checkFav }
             checked={ fav }
@@ -70,6 +86,7 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string.isRequired,
     trackId: PropTypes.number.isRequired,
   }).isRequired,
+  favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
 
 };
 

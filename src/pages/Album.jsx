@@ -4,6 +4,7 @@ import Header from '../Components/Header';
 import getMusics from '../services/musicsAPI';
 import Load from '../Components/Load';
 import MusicCard from '../Components/MusicCard';
+import { getFavoriteSongs } from '../services/favoriteSongsAPI';
 
 class Album extends Component {
   constructor() {
@@ -11,6 +12,7 @@ class Album extends Component {
     this.state = {
       info: {},
       musics: [],
+      favorites: [],
     };
   }
 
@@ -18,6 +20,7 @@ class Album extends Component {
     const { match } = this.props;
     const { id } = match.params;
     this.getList(id);
+    this.saveList();
   }
 
   getList = async (id) => {
@@ -28,8 +31,13 @@ class Album extends Component {
     });
   }
 
+  saveList = async () => {
+    const requestFav = await getFavoriteSongs();
+    this.setState((prev) => ({ favorites: [...prev.favorites, requestFav] }));
+  };
+
   render() {
-    const { musics, info } = this.state;
+    const { musics, info, favorites } = this.state;
 
     return (
       <div data-testid="page-album">
@@ -44,7 +52,11 @@ class Album extends Component {
               <h2 data-testid="album-name">
                 { info.collectionName}
               </h2>
-              {musics.map((music) => <MusicCard music={ music } key={ music.trackId } />)}
+              {musics.map((music) => (<MusicCard
+                music={ music }
+                key={ music.trackId }
+                favorites={ favorites }
+              />))}
             </div>
 
           )}
