@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { addSong } from '../services/favoriteSongsAPI';
+import { addSong, getFavoriteSongs } from '../services/favoriteSongsAPI';
+
 // import Load from './Load';
 
 class MusicCard extends Component {
@@ -9,24 +10,28 @@ class MusicCard extends Component {
     this.state = {
       loading: false,
       fav: false,
+      favorites: [],
     };
   }
 
   componentDidMount() {
-    const { favorites, music } = this.props;
-    favorites.forEach((fav) => {
-      if (fav.includes(music)) {
-        this.setState({
-          fav: true,
-        });
-      }
-    });
-    // if (favorites.includes(music)) {
-    //   this.setState({
-    //     fav: true,
-    //   })
-    // }
+    this.saveList();
   }
+
+  saveList = async () => {
+    const requestFav = await getFavoriteSongs();
+    this.setState({ favorites: requestFav }, () => {
+      const { favorites } = this.state;
+      const { music } = this.props;
+      favorites.forEach((fav) => {
+        if (fav.trackId === music.trackId) {
+          this.setState({
+            fav: true,
+          });
+        }
+      });
+    });
+  };
 
   checkFav = async () => {
     const { music } = this.props;
@@ -86,7 +91,9 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string.isRequired,
     trackId: PropTypes.number.isRequired,
   }).isRequired,
-  favorites: PropTypes.arrayOf(PropTypes.object).isRequired,
+  favorites: PropTypes.shape({
+    trackId: PropTypes.number,
+  }).isRequired,
 
 };
 
