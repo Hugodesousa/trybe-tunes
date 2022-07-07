@@ -45,11 +45,13 @@ class MusicCard extends Component {
         fav: false,
         loading: false,
       });
-    } else { await addSong(music); }
-    this.setState({
-      fav: true,
-      loading: false,
-    });
+    } else {
+      await addSong(music);
+      this.setState({
+        fav: true,
+        loading: false,
+      });
+    }
   }
 
   render() {
