@@ -39,15 +39,15 @@ class MusicCard extends Component {
     this.setState({
       loading: true,
     });
-    if (!fav) {
-      await addSong(music);
+    if (fav) {
+      await removeSong(music);
       this.setState({
-        fav: true,
+        fav: false,
         loading: false,
       });
-    } else { await removeSong(music); }
+    } else { await addSong(music); }
     this.setState({
-      fav: false,
+      fav: true,
       loading: false,
     });
   }
@@ -92,10 +92,6 @@ MusicCard.propTypes = {
     previewUrl: PropTypes.string.isRequired,
     trackId: PropTypes.number.isRequired,
   }).isRequired,
-  favorites: PropTypes.shape({
-    trackId: PropTypes.number,
-  }).isRequired,
-
 };
 
 export default MusicCard;
