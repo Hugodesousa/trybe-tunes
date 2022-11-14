@@ -1,0 +1,27 @@
+.user {
+  background-color: rgb(58, 106, 202);
+  color: white;
+  padding: 1%;
+}
+
+.header {
+  align-items: baseline;
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20rem;
+}
+
+.headerItens {
+  display: flex;
+  margin-right: 3rem;
+}
+
+@media screen and ( max-width : 780px ) {
+
+  .user {
+    padding: 2rem;
+    text-align: center;
+    width: 100%;
+  }
+
+}

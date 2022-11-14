@@ -1,0 +1,64 @@
+.searchContainer {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  margin-top: 3%;
+}
+
+.searchContainer div {
+  align-items: center;
+  background-color: white;
+  border-radius: 7%;
+  box-shadow: 2px 2px 2px 2px rgba(0, 0, 0, 0.2);
+  display: flex;
+  flex-direction: column;
+  padding: 5% 10%;
+}
+
+.searchContainer form {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+}
+
+.searchContainer form input {
+  border: 1px solid black;
+  margin-bottom: 5%;
+  margin-top: 15%;
+  padding: 10px;
+}
+
+.resultContainer {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 2rem;
+}
+
+.resultContainer h1 {
+  margin-top: 9rem;
+  text-align: center;
+}
+
+h2 {
+  padding: 3rem;
+  text-align: center;
+}
+
+/* .headerSpace {
+  margin-bottom: 50px;
+} */
+
+.cardResult {
+  margin: 1rem;
+}
+
+.linkCard {
+  text-decoration: none;
+}
+
+/* .allSearch {
+  background-image: url('https://static.vecteezy.com/ti/vetor-gratis/p1/2536317-azul-claro-abstrato-brilhante-modelo-novo-colorido-ilustracao-no-desfoque-estilo-com-gradiente-novo-lado-para-seu-design-vetor.jpg');
+  background-size: cover;
+  height: 100vh;
+} */

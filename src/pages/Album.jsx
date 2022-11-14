@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import Card from 'react-bootstrap/Card';
 import Header from '../Components/Header';
 import getMusics from '../services/musicsAPI';
 import Load from '../Components/Load';
@@ -38,13 +39,17 @@ class Album extends Component {
         {musics.length === 0
           ? <Load />
           : (
-            <div>
-              <h1 data-testid="artist-name">
-                { info.artistName }
-              </h1>
-              <h2 data-testid="album-name">
-                { info.collectionName}
-              </h2>
+            <div className="resultContainer">
+              <Card>
+                <div className="titleAlbum">
+                  <h1 data-testid="artist-name">
+                    { info.artistName }
+                  </h1>
+                  <h2 data-testid="album-name">
+                    { info.collectionName}
+                  </h2>
+                </div>
+              </Card>
               {musics.map((music) => (<MusicCard
                 music={ music }
                 key={ music.trackId }
