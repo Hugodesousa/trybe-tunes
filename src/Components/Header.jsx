@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router-dom';
+import Nav from 'react-bootstrap/Nav';
 import { getUser } from '../services/userAPI';
+import '../style/header.css';
 
 class Header extends Component {
   constructor() {
@@ -25,33 +26,33 @@ class Header extends Component {
     const { userName } = this.state;
     const minName = 3;
     return (
-      <header data-testid="header-component" className="header">
-        {userName.length < minName
-          ? <p>Carregando...</p>
-          : (
-            <p data-testid="header-user-name">
-              {` Usuario:
-            ${userName}`}
-            </p>)}
-        <Link
-          to="/search"
-          data-testid="link-to-search"
-        >
-          Search
-        </Link>
-        <Link
-          to="/favorites"
-          data-testid="link-to-favorites"
-        >
-          Favorites
-        </Link>
-        <Link
-          to="/profile"
-          data-testid="link-to-profile"
-        >
-          Profile
-        </Link>
-      </header>
+      <Nav variant="tabs" data-testid="header-component" className="header">
+        <div className="user">
+          {userName.length < minName
+            ? <p>Carregando...</p>
+            : (
+              <Nav.Item>
+                <h4 data-testid="header-user-name">
+                  {` Bem vindo
+              ${userName}`}
+                </h4>
+              </Nav.Item>
+            )}
+        </div>
+        <div className="headerItens">
+          <Nav.Item>
+            <Nav.Link href="/favorites" data-testid="link-to-favorites">
+              Favorites
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/profile" data-testid="link-to-profile">Profile</Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link href="/search" data-testid="link-to-search">Search</Nav.Link>
+          </Nav.Item>
+        </div>
+      </Nav>
     );
   }
 }

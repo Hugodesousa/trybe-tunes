@@ -1,7 +1,11 @@
 import React, { Component } from 'react';
 import { Redirect } from 'react-router-dom';
-import { createUser } from '../services/userAPI';
+import Button from 'react-bootstrap/Button';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
 import Load from '../Components/Load';
+import { createUser } from '../services/userAPI';
+import '../style/login.css';
 
 class Login extends Component {
   constructor() {
@@ -49,27 +53,36 @@ class Login extends Component {
         return <Redirect to="/search" />;
       }
       return (
-        <div data-testid="page-login">
+        <div data-testid="page-login" className="AllBody">
           {loading ? <Load />
             : (
-              <>
-                <h1>Login</h1>
-                <input
-                  type="text"
-                  data-testid="login-name-input"
-                  onChange={ this.checkButton }
-                  value={ valueLogin }
-                />
-                <button
-                  type="button"
-                  data-testid="login-submit-button"
-                  disabled={ stateButton }
-                  onClick={ this.user }
-                >
-                  Entrar
-                </button>
+              <Container className="loginContainer">
+                <div className="quadrado">
 
-              </>)}
+                  <Row>
+                    <h1>Login</h1>
+                  </Row>
+                  <Row>
+                    <input
+                      type="text"
+                      data-testid="login-name-input"
+                      onChange={ this.checkButton }
+                      value={ valueLogin }
+                      placeholder="Qual seu nome?"
+                    />
+                    <Button
+                      variant="primary"
+                      type="button"
+                      data-testid="login-submit-button"
+                      disabled={ stateButton }
+                      onClick={ this.user }
+                    >
+                      Entrar
+                    </Button>
+                  </Row>
+                </div>
+
+              </Container>)}
         </div>
       );
     }
