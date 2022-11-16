@@ -41,6 +41,40 @@ class Header extends Component {
         </div>
         <div className="headerItens">
           <Nav.Item>
+            <Nav.Link
+              href="trybe-tunes/favorites/#/favorites"
+              data-testid="link-to-favorites"
+            >
+              Favoritos
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              href="trybe-tunes/profile/#/profile"
+              data-testid="link-to-profile"
+            >
+              Perfil
+
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              href="trybe-tunes/search/#/search"
+              data-testid="link-to-search"
+            >
+              Pesquisar
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              href="/"
+            >
+              Sair
+            </Nav.Link>
+          </Nav.Item>
+        </div>
+        {/* <div className="headerItens">
+          <Nav.Item>
             <Nav.Link href="/favorites" data-testid="link-to-favorites">
               Favorites
             </Nav.Link>
@@ -51,7 +85,7 @@ class Header extends Component {
           <Nav.Item>
             <Nav.Link href="/search" data-testid="link-to-search">Search</Nav.Link>
           </Nav.Item>
-        </div>
+        </div> */}
       </Nav>
     );
   }

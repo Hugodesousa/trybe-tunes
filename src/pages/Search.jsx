@@ -76,7 +76,7 @@ class Search extends Component {
           : (
             <Container className="searchContainer">
               <div>
-                <h1>Search</h1>
+                <h1>Pesquisar</h1>
                 <form>
                   <label htmlFor="inputsearch">
                     <input
