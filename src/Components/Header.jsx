@@ -33,7 +33,7 @@ class Header extends Component {
             : (
               <Nav.Item>
                 <h4 data-testid="header-user-name">
-                  {` Bem vindo
+                  {` Bem-vindo
               ${userName}`}
                 </h4>
               </Nav.Item>
@@ -41,15 +41,36 @@ class Header extends Component {
         </div>
         <div className="headerItens">
           <Nav.Item>
-            <Nav.Link href="/favorites" data-testid="link-to-favorites">
-              Favorites
+            <Nav.Link
+              href="#/favorites"
+              data-testid="link-to-favorites"
+            >
+              Favoritos
             </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/profile" data-testid="link-to-profile">Profile</Nav.Link>
+            <Nav.Link
+              href="#/profile"
+              data-testid="link-to-profile"
+            >
+              Perfil
+
+            </Nav.Link>
           </Nav.Item>
           <Nav.Item>
-            <Nav.Link href="/search" data-testid="link-to-search">Search</Nav.Link>
+            <Nav.Link
+              href="#/search"
+              data-testid="link-to-search"
+            >
+              Pesquisar
+            </Nav.Link>
+          </Nav.Item>
+          <Nav.Item>
+            <Nav.Link
+              href="/trybe-tunes"
+            >
+              Sair
+            </Nav.Link>
           </Nav.Item>
         </div>
       </Nav>
