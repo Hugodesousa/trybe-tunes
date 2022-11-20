@@ -38,7 +38,6 @@ class Search extends Component {
         result: false,
       });
     }
-    console.log(result);
     return this.setState({
       result: true,
       albuns: result,
@@ -85,7 +84,7 @@ class Search extends Component {
                       data-testid="search-artist-input"
                       onChange={ this.input }
                       value={ valueSearch }
-                      placeholder="Pesquise por um artista, album ou música"
+                      placeholder="Pesquise por um artista, álbum ou música"
                     />
                   </label>
                   <Button

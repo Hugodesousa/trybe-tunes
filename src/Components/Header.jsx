@@ -33,7 +33,7 @@ class Header extends Component {
             : (
               <Nav.Item>
                 <h4 data-testid="header-user-name">
-                  {` Bem vindo
+                  {` Bem-vindo
               ${userName}`}
                 </h4>
               </Nav.Item>
@@ -42,7 +42,7 @@ class Header extends Component {
         <div className="headerItens">
           <Nav.Item>
             <Nav.Link
-              href="trybe-tunes/favorites/#/favorites"
+              href="#/favorites"
               data-testid="link-to-favorites"
             >
               Favoritos
@@ -50,7 +50,7 @@ class Header extends Component {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link
-              href="trybe-tunes/profile/#/profile"
+              href="#/profile"
               data-testid="link-to-profile"
             >
               Perfil
@@ -59,7 +59,7 @@ class Header extends Component {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link
-              href="trybe-tunes/search/#/search"
+              href="#/search"
               data-testid="link-to-search"
             >
               Pesquisar
@@ -67,25 +67,12 @@ class Header extends Component {
           </Nav.Item>
           <Nav.Item>
             <Nav.Link
-              href="/"
+              href="/trybe-tunes"
             >
               Sair
             </Nav.Link>
           </Nav.Item>
         </div>
-        {/* <div className="headerItens">
-          <Nav.Item>
-            <Nav.Link href="/favorites" data-testid="link-to-favorites">
-              Favorites
-            </Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/profile" data-testid="link-to-profile">Profile</Nav.Link>
-          </Nav.Item>
-          <Nav.Item>
-            <Nav.Link href="/search" data-testid="link-to-search">Search</Nav.Link>
-          </Nav.Item>
-        </div> */}
       </Nav>
     );
   }
